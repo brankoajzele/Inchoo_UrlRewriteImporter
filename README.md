@@ -8,7 +8,10 @@ Once you install the extension, when you login to Magento administration interfa
 Clicking the "Import URL Rewrites" button opens the screen where you supply the CSV file with 2 columns of data. In the left column is the origin path, and in the right column is the destination path to which you wish to make a rewrite like shown below.
 
 "product/1","product/iphone"
+
 "product/2","product/iphone2"
+
 "product/3","product/iphone3"
+
 "product/4","product/iphone4"
 
