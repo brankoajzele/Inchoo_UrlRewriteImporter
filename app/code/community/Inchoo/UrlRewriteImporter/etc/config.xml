@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Inchoo
+ * @package     Inchoo_UrlRewriteImporter
+ * @author      Branko Ajzele <ajzele@gmail.com>
+ * @copyright   Copyright (c) Inchoo
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Inchoo_UrlRewriteImporter>
+            <version>1.0.0.0</version>
+        </Inchoo_UrlRewriteImporter>
+    </modules>
+    <global>
+        <models>
+            <inchoo_urlrewriteimporter>
+                <class>Inchoo_UrlRewriteImporter_Model</class>
+            </inchoo_urlrewriteimporter>
+        </models>
+        <blocks>
+            <inchoo_urlrewriteimporter>
+                <class>Inchoo_UrlRewriteImporter_Block</class>
+            </inchoo_urlrewriteimporter>
+        </blocks>     
+    </global>
+    <adminhtml>
+        <events>
+            <adminhtml_widget_container_html_before>
+                <observers>
+                    <inchoo_urlrewriteimporter_injectImportUrlRewritesButton>
+                        <class>inchoo_urlrewriteimporter/observer</class>
+                        <method>injectImportUrlRewritesButton</method>
+                    </inchoo_urlrewriteimporter_injectImportUrlRewritesButton>
+                </observers>
+            </adminhtml_widget_container_html_before>
+        </events>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Inchoo_UrlRewriteImporter after="Mage_Adminhtml">Inchoo_UrlRewriteImporter_Adminhtml</Inchoo_UrlRewriteImporter>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>     
+</config>
