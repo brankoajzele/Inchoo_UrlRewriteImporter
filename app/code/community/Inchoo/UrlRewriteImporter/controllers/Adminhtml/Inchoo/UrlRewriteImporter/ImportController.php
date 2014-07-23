@@ -69,8 +69,10 @@ class Inchoo_UrlRewriteImporter_Adminhtml_Inchoo_UrlRewriteImporter_ImportContro
                         continue;
                     }
 
-                    $requestPath = $line[0];
-                    $targetPath = $line[1];
+                    // Add the store_id to keep just for that store_view redirection
+                    $storeId       = $line[0];
+                    $requestPath   = $line[1];
+                    $targetPath    = $line[2];
 
                     $rewrite = Mage::getModel('core/url_rewrite');
 
@@ -80,7 +82,7 @@ class Inchoo_UrlRewriteImporter_Adminhtml_Inchoo_UrlRewriteImporter_ImportContro
                             ->setDescription('Inchoo_UrlRewriteImporter')
                             ->setRequestPath($requestPath)
                             ->setIsSystem(0)
-                            ->setStoreId(0);
+                            ->setStoreId($storeId);
 
                     try {
                         $rewrite->save();
